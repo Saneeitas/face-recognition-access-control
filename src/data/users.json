@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "image_path": "data/images/image1.jpg",
+        "label": 1,
+        "is_approved": true
+    },
+    {
+        "id": 2,
+        "name": "John Doe",
+        "image_path": "data/images/image1.jpg",
+        "label": 2,
+        "is_approved": true
+    }
+]
