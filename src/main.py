@@ -1,39 +1,48 @@
-import os
-from utils.detect_faces import detect_faces
-from utils.train_recognizer import train_recognizer
-import json
+import sys
+import tkinter as tk
+from tkinter import messagebox
+import subprocess
+from admin import create_admin_gui 
 
-# Ensure necessary directories and files exist
-os.makedirs("data/images", exist_ok=True)
-if not os.path.exists("data/users.json"):
-    with open("data/users.json", "w") as f:
-        json.dump([], f)
+def open_registration():
+    result = subprocess.run([sys.executable, "add_user_gui.py"], capture_output=True, text=True)
+    print(result.stdout)
+    print(result.stderr)
 
-def main():
-    print(os.getcwd())
-    print("Starting Face Recognition System...")
+def start_recognition():
+    result = subprocess.run([sys.executable, "face_recognition.py"], capture_output=True, text=True)
+    print(result.stdout)
+    print(result.stderr)
 
+def admin_access():
+    create_admin_gui()
 
-    # Step 1: Detect faces (example usage)
-    image_path = "data/images/image1.jpg"  # Replace with actual image
-    num_faces, faces = detect_faces(image_path)
-    print(f"Number of faces detected: {num_faces}")
+def create_main_menu():
+    root = tk.Tk()
+    root.title("Face Recognition System")
+    
+    # Set window size
+    window_width = 400
+    window_height = 250
+    
+    # Get the screen width and height
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    
+    # Calculate x and y coordinates to center the window
+    x = (screen_width // 2) - (window_width // 2)
+    y = (screen_height // 2) - (window_height // 2)
+    
+    # Set the geometry of the window
+    root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
-    # Step 2: Add user data (Example: You can make this dynamic later)
-    with open("data/users.json", "r+") as file:
-        users = json.load(file)
-        users.append({
-            "id": len(users) + 1,
-            "name": "John Doe",
-            "image_path": image_path,
-            "label": len(users) + 1,
-            "is_approved": True
-        })
-        file.seek(0)
-        json.dump(users, file, indent=4)
+    tk.Label(root, text="Welcome to the Face Recognition System", font=("Helvetica", 12)).pack(pady=10)
 
-    # Step 3: Train recognizer
-    train_recognizer()
+    tk.Button(root, text="Register User", command=open_registration, width=20).pack(pady=10)
+    tk.Button(root, text="Scan Face", command=start_recognition, width=20).pack(pady=10)
+    tk.Button(root, text="Admin Access", command=admin_access, width=20).pack(pady=10)
+
+    root.mainloop()
 
 if __name__ == "__main__":
-    main()
+    create_main_menu()
