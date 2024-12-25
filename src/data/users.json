@@ -7,10 +7,45 @@
         "is_approved": true
     },
     {
-        "id": 2,
-        "name": "John Doe",
-        "image_path": "data/images/image1.jpg",
-        "label": 2,
+        "id": 3,
+        "name": "Muhammad Sani",
+        "image_path": "D:/Files/GDSC/IMG_20200729_141553_980.jpg",
+        "label": 3,
+        "is_approved": true
+    },
+    {
+        "id": 4,
+        "name": "Zian Hu",
+        "image_path": "D:/Web Development/face-recognition-access-control/src/data/images/image1.jpg",
+        "label": 4,
+        "is_approved": true
+    },
+    {
+        "id": 5,
+        "name": "Lee Shee",
+        "image_path": "D:/Web Development/face-recognition-access-control/src/data/images/image2.jpg",
+        "label": 5,
+        "is_approved": true
+    },
+    {
+        "id": 6,
+        "name": "User 3",
+        "image_path": "D:/Web Development/face-recognition-access-control/src/data/images/image3.jpg",
+        "label": 6,
+        "is_approved": true
+    },
+    {
+        "id": 7,
+        "name": "User 4",
+        "image_path": "D:/Web Development/face-recognition-access-control/src/data/images/image4.jpg",
+        "label": 7,
+        "is_approved": true
+    },
+    {
+        "id": 8,
+        "name": "User 5",
+        "image_path": "D:/Web Development/face-recognition-access-control/src/data/images/image5.jpg",
+        "label": 8,
         "is_approved": true
     }
 ]
